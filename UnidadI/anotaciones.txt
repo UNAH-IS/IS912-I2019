@@ -1,0 +1,30 @@
+Formato CSV:
+    Juan,Perez,23,Masculino,Tegucigalpa,25/12/2009
+
+Formato XML
+    <persona>
+        <nombre>Juan</nombre>
+        <apellido>Perez</apellido>
+        <edad>23</edad>
+        <genero>Masculino</genero>
+        <ciudad>Tegucigalpa</ciudad>
+        <fecha-nacimiento>
+            <dia>25</dia>
+            <mes>12</mes>
+            <anio>2009</anio>
+        </fecha-nacimiento>
+    </persona>
+
+JSON (Javascript Object Notation)
+    persona = {
+        nombre:"Juan",
+        apellido:"Perez",
+        edad:"23",
+        genero:"Masculino",
+        ciudad:"Tegucigalpa",
+        fechaNacimiento:{
+            dia:25,
+            mes:12,
+            anio:2009
+        },
+    }

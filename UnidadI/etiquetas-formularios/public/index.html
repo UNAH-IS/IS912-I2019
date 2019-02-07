@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> <!--Poder utilizar caracteres especiales-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Etiquetas básicas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Etiquetas para formularios</h1>
+    <!--
+        Form:
+        Se utiliza para agrupar componentes de formularios.
+        Se utiliza para procesar informacion en peticiones sincronas
+        Tambien podria utilizarse para aplicar estilos css
+    -->
+    <form>
+        <input type="text" placeholder="Introduzca su nombre" size="50" id="txt-nombre" name="txt-nombre">
+        <input type="password"><br>
+        <!--Variantes de input type text de HTML5-->
+        <input type="date" placeholder="Fecha"><br>
+        <input type="email" placeholder="Correo"><br>
+        <input type="color" placeholder="Color"><br>
+        <input type="number" placeholder="Numero"><br>
+        <input type="month" placeholder="Mes"><br>
+        <input type="range" placeholder="Rango"><br>
+        <input type="datetime-local" placeholder="Fecha/Hora"><br>
+        <input type="tel" placeholder="Telefono"><br>
+        <hr>
+        Gustos: <br>
+        <input type="checkbox" id="chk-0" name="chk-gustos" value="0"><label for="chk-0">Ella</label><br>
+        <input type="checkbox" id="chk-1" name="chk-gustos" value="1"><label for="chk-1">Baleadas</label><br>
+        <input type="checkbox" id="chk-2" name="chk-gustos" value="2"><label for="chk-2">Sopa de mondongo</label><br>
+        <input type="checkbox" id="chk-3" name="chk-gustos" value="3"><label for="chk-3">Pupusas</label><br>
+        <input type="checkbox" id="chk-4" name="chk-gustos" value="4"><label for="chk-4">Fresco de maracuya</label><br>
+        <label><input type="checkbox" name="chk-gustos" value="5">Horchata</label><br>
+
+        <br>
+        Genero: 
+        <label>Femenino<input type="radio" name="rbt-genero" value="F"></label>
+        <label>Masculino<input type="radio" name="rbt-genero" value="M"></label>
+
+        <br>
+        <textarea placeholder="Direccion" rows="10" cols="40" value="Prueba">Colonia Kenide</textarea>
+        <br>
+        Pais de nacimiento: 
+        <select id="pais">
+            <option value="-">Seleccione un país</option>
+            <option value="1">Honduras</option>
+            <option value="2">Nicaragua</option>
+            <option value="3">Guatemala</option>
+            <option value="4">El Salvador</option>
+            <option value="5">Costa Rica</option>
+            <option value="6">Panama</option>
+        </select>
+        <br>Paises que he visitado:<br>
+        <select multiple>
+            <option value="-">Seleccione un país</option>
+            <option value="1">Honduras</option>
+            <option value="2">Nicaragua</option>
+            <option value="3">Guatemala</option>
+            <option value="4">El Salvador</option>
+            <option value="5">Costa Rica</option>
+            <option value="6">Panama</option>
+        </select>
+        <hr>
+        <!--Botones del tipo submit tienen una programación predefinida para realizar peticiones sincronas utilizando la etiqueta form-->
+        <button type="submit">Click aquí</button>
+        <input type="submit" value="Click aquí">
+
+        <!--Botones del tipo button, son botones sin funcionalidad, el programador les da cualquier funcionalidad utilizando javascript. -->
+        <button type="button">Click aquí</button>
+        <input type="button" value="Click aquí">
+
+    </form>
+</body>
+</html>

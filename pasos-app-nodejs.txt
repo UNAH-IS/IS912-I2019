@@ -1,0 +1,25 @@
+Instalar NodeJS (node --version)
+
+
+Crear un servidor en NodeJS
+1. Crear una carpeta vacía
+2. Acceder a la carpeta desde una consola
+3. Ejecutar el comando npm init (creará el archivo package.json)
+4. Instalar el modulo express con el siguiente comando:
+	npm install express --save
+5. Crear un archivo con el nombre index.js y escribir el siguiente código:
+	///////////////////////////////////
+	//Importar el modulo express para crear el servidor web
+	var express = require("express");
+	//Crear una aplicacion de nodejs con express
+	var app = express();
+
+	//definir una carpeta como publica para que los usuarios puedan acceder a su contenido
+	app.use(express.static("www"));
+	 
+	//Levantar el servidor en el puerto 3333
+	app.listen(3333, function(){
+	    console.log("Servidor levantado en el puerto 3333");
+	});
+	///////////////////////////////////
+6. Ejecutar el servidor con el comando node index.js

@@ -1,0 +1,58 @@
+CSS (Hojas de estilo en casc🎥 “Entreganos a tu partido y te vamos a cubrir. ¿A qué nivel?, ¿A nivel del fiscal general? ¿Fiscales? ¿Presidente de la CSJ?, No. Son arreglos más arriba. Búsquenlos en Washington”, dijo Lobo a los periodistas.
+🎥 “Entreganos a tu partido y te vamos a cubrir. ¿A qué nivel?, ¿A nivel del fiscal general? ¿Fiscales? ¿Presidente de la CSJ?, No. Son arreglos más arriba. Búsquenlos en Washington”, dijo Lobo a los periodistas.
+ada)
+
+Formas de aplicar CSS
+1. En linea: Se aplica directamente en la etiqueta utilizando el atributo style. En el valor del atributo style se escribe sintaxis CSS como la mostrada a continuacion:
+
+    nombre-estilo1:valor-estilo1;
+    nombre-estilo2:valor-estilo2;
+    ...
+    nombre-estiloN:valor-estiloN;
+
+2. En el encabezado del html: Se incluye estilos utilizando la etiqueta style dentro de la etiqueta head.
+    Para aplicar este tipo de estilos a una etiqueta en particular es necesario utilizar selectores.
+    Tipos de selectores:
+    *Selector por nombre de etiqueta:
+        nombre-etiqueta{
+            nombre-estilo1:valor-estilo1;
+            nombre-estilo2:valor-estilo2;
+            ...
+            nombre-estiloN:valor-estiloN;
+        }
+    *Selector por el ID de la etiqueta:
+        #id-etiqueta{
+            nombre-estilo1:valor-estilo1;
+            nombre-estilo2:valor-estilo2;
+            ...
+            nombre-estiloN:valor-estiloN;
+        }
+    *Selector por clase CSS
+        .nombre-clase{
+            nombre-estilo1:valor-estilo1;
+            nombre-estilo2:valor-estilo2;
+            ...
+            nombre-estiloN:valor-estiloN;
+        }
+    
+
+3. En un archivo externo
+
+
+
+Codificación para los colores:
+    RGB (Red, Green, Blue)
+    (0-255,0-255,0-255)
+    (255,0,0)
+    (0,255,0)
+    (0,0,255)
+    (155,22,1)
+    rgba(0,0,0,0.5)
+    
+    
+    #000000
+
+    RGB
+
+    0-> 00
+    255 ->FF

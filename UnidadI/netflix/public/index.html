@@ -6,6 +6,11 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        /*Importar una fuente externa*/
+        @font-face{
+            font-family: FuenteExotica;
+            src:url('fonts/BOSTHONBRUSH.otf');
+        }
         /*
         Comentarios en CSS
         */
@@ -30,25 +35,23 @@
             border-style: solid;*/
         }
 
-        /*Estilos*/
-        #logo{
-            /*margin-top:15px;
-            margin-bottom:15px;
-            margin-right:15px;
-            margin-left:15px;*/
-            margin:15px 15px 15px 30px;/*Arriba Derecha Abajo Izquierda*/
+        #parrafo-x{
+            background-color:blue;
         }
 
-        #formulario-login{
-            width: 500px;
-            background-color: #000000b3;
-            border-radius: 25px;
-            height: 500px;
-            padding: 40px 40px 40px 40px;
-            margin-left: auto;
-            margin-right: auto;
+        .fondo-verde{
+            background-color:green;
+        }
+
+        
+    </style>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        .fondo-verde{
+            background-color:aqua;
         }
     </style>
+
 </head>
 <body style="background-color:rgb(0, 0, 0);background-image: url(img/fondo.jpg);background-repeat: no-repeat;background-position: center center;background-attachment: fixed;background-size:cover">
     <div style="background-color:rgba(0, 0, 0, 0.65);color:white;position:absolute;width:100%;height: 100%;left:0;top:0">
@@ -58,10 +61,22 @@
         <main>
             <div id="formulario-login">
                 <h1>Sign In</h1>
-                <input type="text" placeholder="Email or phone number">
-                <input type="password" placeholder="Password">
-                <button type="button">Sign In</button>
+                <input class="caja-texto" type="text" placeholder="Email or phone number">
+                <input class="caja-texto" type="password" placeholder="Password">
+                <input type="button" value="Sign In">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Need help</a>
             </div>
+            <!--
+                Prioridades:
+                    1. Estilos en linea
+                    2. Estilos por ID
+                    3. Estilos por clase CSS
+                Si se redefine los estilos de un selector en especifico, tendra prioridad el que se defina de ultimo
+            -->
+            <p class="fondo-verde" style="color:white;">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus sed ex, numquam temporibus quidem cupiditate impedit illum esse deserunt ut. Provident, eaque itaque. Animi, eum? Quo modi, unde veniam illum neque quidem a asperiores tenetur voluptate. Iste, culpa nostrum obcaecati animi assumenda cumque itaque, officiis vero perferendis ducimus voluptatem consequatur?
+            </p>
             <!--p class="parrafo-negrita">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. A totam impedit, illo accusamus corporis natus vitae tempore nostrum eius? Nam a at voluptatum animi doloribus ut ad accusamus ipsa non, reprehenderit dolor esse odit modi quibusdam. Voluptas cum culpa illum nam velit impedit repellendus eveniet amet nemo iusto, inventore maiores optio qui nihil minus tenetur blanditiis cumque reprehenderit soluta reiciendis assumenda. Aspernatur laboriosam veritatis rem excepturi sint neque, consequuntur nam sapiente, dicta est inventore cumque minus deserunt error facilis voluptates rerum, eius recusandae aliquam expedita beatae. Optio ab, voluptatum obcaecati magnam reprehenderit laborum, omnis voluptate corporis, ad molestiae repellat alias?
             </p>

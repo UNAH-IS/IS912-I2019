@@ -1,0 +1,68 @@
+/*Estilos*/
+#logo{
+    /*margin-top:15px;
+    margin-bottom:15px;
+    margin-right:15px;
+    margin-left:15px;*/
+    margin:15px 15px 15px 30px;/*Arriba Derecha Abajo Izquierda*/
+}
+
+#formulario-login{
+    width: 321px;
+    background-color: #000000b3;
+    border-radius: 8px;
+    height: 500px;
+    padding: 40px 60px 40px 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#formulario-login h1 {
+    /*font-family: FuenteExotica, 'Helvetica Neue',Helvetica,Arial,sans-serif;*/
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+#formulario-login input[type="text"], #formulario-login input[type="password"]{
+    background-color: #333333;
+    border-width: 0;
+    width: 100%;
+    font-size: 1.15em;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;/*Incluyen el padding y el borde en el ancho del input para que no se pase*/
+}
+
+
+#formulario-login input[type="button"]{
+    background-color: #E50914;
+    width: 100%;
+    border: 0;
+    padding: 17px;
+    border-radius: 7px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+/*Aplicar un color de fondo diferente para inputs del tipo button
+y unicamente cuando se pase el cursor sobre el, el input
+debe estar dentro de una etiqueta con el id formulario-login*/
+#formulario-login input[type="button"]:hover{
+    background-color: rgb(97, 2, 7);
+}
+
+#formulario-login a{
+    color:#dbdbdb;
+    font-size:15px;
+    text-decoration: none; /*underline es subrayado*/
+}
+
+
+#formulario-login a:hover{
+    text-decoration: underline;
+    color:#E50914;
+}
+
+.fondo-verde{
+    background-color:greenyellow;
+}

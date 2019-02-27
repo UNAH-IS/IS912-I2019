@@ -1,0 +1,39 @@
+body {
+    padding-top: 5rem;
+    background-color:#EDF0F5;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+.bg-dark{
+    background-color:#3B5998!important;
+}
+
+#form-login{
+    margin-left:auto;
+}
+
+#form-login input[type="text"], #form-login input[type="password"]{
+    font-size:11px;
+}
+
+#form-login .btn-primary{
+    font-size:11px;
+    background-color:#22407c;
+    border-color:#22407c;
+
+}
+
+.navbar{
+    padding-left: 18rem;
+    padding-right: 18rem;
+}
+
+
+@media only screen and (max-width:576px){
+    .navbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

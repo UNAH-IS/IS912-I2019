@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .input-error{
+            border: 1px solid red;
+        }
+        .mensaje-error{
+            color: red;
+            font-size: 8px;
+            margin: 3px 0px 10px 0px;
+            display:none;
+        }
+        .mensaje-exito{
+            font-size: 10px;
+            color: green;
+            margin: 10px 0 10px 0;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <input id="nombre" type="text" placeholder="Nombre"><br>
+    <div id="div-error-nombre" class="mensaje-error">Ingrese el nombre</div>
+    <input id="apellido" type="text" placeholder="Apellido"><br>
+    <div id="div-error-apellido" class="mensaje-error">Ingrese el apellido</div>
+    <input id="email" type="text" placeholder="Correo" onkeyup="validarCorreo(this)"><br>
+    <div id="div-error-email" class="mensaje-error">Ingrese el correo</div>
+    <input id="usuario" type="text" placeholder="Usuario"><br>
+    <div id="div-error-usuario" class="mensaje-error">Ingrese el usuario</div>
+    <input id="password" type="password" placeholder="Password"><br>
+    <div id="div-error-password" class="mensaje-error">Ingrese el password</div>
+    <button type="button" onclick="registrar()">Registrar</button>
+    <div id="div-mensaje-exito" class="mensaje-exito">Registro guardado con éxito</div>
+    <script src="js/controlador.js"></script>
+</body>
+</html>

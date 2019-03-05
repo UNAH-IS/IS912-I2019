@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Facebook</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><img src="img/logo-facebook.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form id="formulario-login" class="form-inline my-2 my-lg-0 ml-auto">
+          <input class="form-control mr-sm-2" type="text" placeholder="Email or Phone" aria-label="Email or Phone">
+          <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-none d-sm-block">
+            <br>
+            <h2>Connect with friends and the
+            world around you on Facebook.</h2>
+            <br>
+            <br>
+            <table id="tabla-iconos">
+              <tr>
+                <td><img src="img/icono1.png"></td>
+                <td><strong>See photos and updates</strong> from friends in News Feed.</td>
+              </tr>
+              <tr>
+                <td><img src="img/icono2.png"></td>
+                <td><strong>Share what's new</strong> in your life on your Timeline.</td>
+              </tr>
+              <tr>
+                <td><img src="img/icono3.png"></td>
+                <td><strong>Find more</strong> of what you're looking for with Facebook Search. </td>
+              </tr>
+            </table>
+            <table class="table table-striped table-hover" id="tabla-usuarios">          
+            </table>
+         </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Sign Up</h1>
+            <p>It’s free and always will be.</p>
+            <br>
+            <div class="row" id="formulario-signup">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <input class="form-control" type="text" placeholder="First name" id="txt-firstname">
+                  <div class="valid-feedback">Es bien</div>
+                  <div class="invalid-feedback">Esta mal</div>
+                  <!--div id="validacion">-</div--><!-- Descomentar en caso de probar la funcionalidad sin bootstrap -->
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <input class="form-control" type="text" placeholder="Last name" id="txt-lastname">
+                <div class="valid-feedback">Es bien</div>
+                <div class="invalid-feedback">Esta mal</div>
+              </div>
+              <div class="col-12">
+                <input class="form-control" type="text" placeholder="Mobile number or email" id="txt-email" onkeyup="validarCorreo(this)">
+                <div class="valid-feedback">Es bien</div>
+                <div class="invalid-feedback">Esta mal</div>
+              </div>
+              <div class="col-12">
+                <input class="form-control" type="password" placeholder="Password" id="txt-password">
+                <div class="valid-feedback">Es bien</div>
+                <div class="invalid-feedback">Esta mal</div>
+              </div>
+              <div class="col-12">
+                <b>Birthday</b>
+                <input class="form-control" type="date" placeholder="Birthday" id= "txt-birthday">
+                <div class="valid-feedback">Es bien</div>
+                <div class="invalid-feedback">Esta mal</div>
+              </div>
+              <div class="col-12">
+                <label><input type="radio" name="rbt-genero" value="F"> Female</label>
+                <label><input type="radio" name="rbt-genero" value="M"> Male</label>
+                <p id="texto-pequenio">
+                  By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookies Policy</a>. You may receive SMS Notifications from us and can opt out any time.
+                </p>
+                <br>
+                <input class="btn btn-success" type="button" value="Sign Up" onclick="registrar();">
+              </div>
+              
+            </div>
+        </div>
+      </div>
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
+    <!--script src="js/bootstrap.min.js"></script-->
+    <script src="js/controlador.js"></script>
+  </body>
+</html>

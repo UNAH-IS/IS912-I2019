@@ -12,6 +12,7 @@ var db;
     solicitud.onsuccess = function(evento){
         db = solicitud.result;
         console.log("Se abrio o se creo la BD");
+        actualizarTabla();
     }
 
     solicitud.onerror = function(evento){
@@ -36,7 +37,7 @@ var db;
 })();
 
 
-var informacion = [];
+
 //DOM (Document Object Model)
 function registrar(){
     var campos = [
@@ -59,13 +60,6 @@ function registrar(){
     //Todo esta bien, todo saldra bien,... OK?
     document.getElementById('div-mensaje-exito').style.display = 'block';
 
-    /*informacion.push({
-        nombre:document.getElementById('nombre').value,
-        apellido:document.getElementById('apellido').value,
-        email:document.getElementById('email').value,
-        usuario:document.getElementById('usuario').value,
-        password:document.getElementById('password').value
-    });*/
     var transaccion = db.transaction(["usuarios"],"readwrite");///readwrite: Escritura/lectura, readonly: Solo lectura
     var objectStoreUsuarios = transaccion.objectStore("usuarios");
     var solicitud = objectStoreUsuarios.add({
@@ -115,24 +109,39 @@ Expresion regular numero de identidad... creo...
 
 
 function actualizarTabla(){
+    var transaccion = db.transaction(["usuarios"],"readonly");///readwrite: Escritura/lectura, readonly: Solo lectura
+    var objectStoreUsuarios = transaccion.objectStore("usuarios");
     document.getElementById('tabla-usuarios').innerHTML = '';
-    for (var i=0; i<informacion.length;i++){ 
-        //Se acumula el contenido con +=  
-        document.getElementById('tabla-usuarios').innerHTML += 
-        `<tr>
-            <td>${informacion[i].nombre}</td>
-            <td>${informacion[i].apellido}</td>
-            <td>${informacion[i].email}</td>
-            <td>${informacion[i].usuario}</td>
-            <td>${informacion[i].password}</td>
-            <td><button onclick="eliminar(${i});" type="button">Eliminar ${i}</button></td>
-        </tr>`;
-    }
+    var cursor = objectStoreUsuarios.openCursor();
+    cursor.onsuccess = function(evento){
+        //Se ejecuta por cada elemento leído del objectstore
+        if(evento.target.result){
+            //console.log(evento.target.result.value);
+            var registro = evento.target.result.value;
+            document.getElementById('tabla-usuarios').innerHTML += 
+            `<tr>
+                <td>${registro.nombre}</td>
+                <td>${registro.apellido}</td>
+                <td>${registro.email}</td>
+                <td>${registro.usuario}</td>
+                <td>${registro.password}</td>
+                <td><button onclick="eliminar(${evento.target.result.key});" type="button">Eliminar ${evento.target.result.key}</button></td>
+            </tr>`;
+            evento.target.result.continue();
+        }
+    };
+    
+    
 }
 
-function eliminar(indice){
+function eliminar(key){
     //Eliminar el elemento del arreglo de JSONs con shift
-    informacion.shift(indice);
+    var transaccion = db.transaction(["usuarios"],"readwrite");///readwrite: Escritura/lectura, readonly: Solo lectura
+    var objectStoreUsuarios = transaccion.objectStore("usuarios");
+    var solicitud = objectStoreUsuarios.delete(key);
+    solicitud.onsuccess = function(){
+        console.log("Se elimino");
+    }
     actualizarTabla();
 }
 

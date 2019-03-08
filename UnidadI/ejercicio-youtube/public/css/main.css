@@ -23,3 +23,8 @@
     color: grey;
     font-size: 14px;
 }
+
+
+#formulario{
+    display:none;
+}

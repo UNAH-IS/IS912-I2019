@@ -7,20 +7,22 @@ var informacion = [
     {titulo:'Dont stop me Now',urlCaratula:'img/6.jpg',canal:'Queen',visualizaciones:'19k',duracion:'35:25',subido:'19 hours ago'},
     {titulo:'UnSun - The End Of Life',urlCaratula:'img/7.jpg',canal:'UnSun',visualizaciones:'19k',duracion:'35:25',subido:'19 hours ago'}
 ];
-
+var indiceSeleccionado;
 
 console.log(informacion.length);
 
 function generarRegistros(){
+    document.getElementById('registros').innerHTML =  '';
     for(var i=0;i<informacion.length;i++){
         document.getElementById('registros').innerHTML += 
             `<div class="col-xl-2 col-12 col-sm-12">
                 <div>
-                    <div class="encabezado" style="background-image: url(${informacion[i].urlCaratula});"><span>Lorem ipsum</span><br><span class="duracion">33:25</span></div>
+                    <div class="encabezado" style="background-image: url(${informacion[i].urlCaratula});"><span>${informacion[i].titulo}</span><br><span class="duracion">${informacion[i].duracion}</span></div>
                     <div class="descripcion">
-                        <div class="titulo-descripcion">Titulo descripcion</div>
-                        <div class="canal">Nombre canal</div>
-                        <div class="visualizaciones">19k | 19 hours ago</div>
+                        <div class="titulo-descripcion">${informacion[i].titulo}</div>
+                        <div class="canal">${informacion[i].canal}</div>
+                        <div class="visualizaciones">${informacion[i].visualizaciones} | ${informacion[i].subido}</div>
+                        <button class="btn btn-outline-secondary" onclick="editarRegistro(${i})"><i class="fas fa-pen-square"></i></button>
                     </div>
                 </div>
             </div>`;
@@ -29,3 +31,15 @@ function generarRegistros(){
 
 
 generarRegistros();
+
+function editarRegistro(indice){
+    indiceSeleccionado = indice;
+    console.log("Editar el registro con indice: " + indice)
+    document.getElementById('formulario').style.display = "block";
+    document.getElementById('titulo').value = informacion[indice].titulo;
+}
+
+function guardarCambios(){
+    informacion[indiceSeleccionado].titulo = document.getElementById('titulo').value;
+    generarRegistros();
+}

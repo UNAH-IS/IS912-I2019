@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+        <input value="Juan" id="nombre" type="text" placeholder="Nombre"><br>
+        <input value="Perez" id="apellido" type="text" placeholder="Apellido"><br>
+        <input value="jperex@gmail.com" id="email" type="text" placeholder="Correo" onkeyup="validarCorreo(this)"><br>
+        <input value="jpered" id="usuario" type="text" placeholder="Usuario"><br>
+        <select id="pais">
+            <option value="Honduras">Honduras</option>
+            <option value="Nicaragua">Nicaragua</option>
+            <option value="ElSalvador">ElSalvador</option>
+            <option value="Costarica">Costarica</option>
+            <option value="Panama">Panama</option>
+        </select>
+        <input value="asd.456" id="password" type="password" placeholder="Password"><br>
+        <button id="btn-registrar" type="button">Registrar</button>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    $("#btn-registrar").click(function(){
+        var parametros = `nombre=${$("#nombre").val()}&apellido=${$("#apellido").val()}&correo=${$("#email").val()}&usuario=${$("#usuario").val()}&pais=${$("#pais").val()}&password=${$("#password").val()}`;
+        console.log("Informacion a enviar: " + parametros);
+        $.ajax({
+            url:"/procesar",
+            method:"POST",
+            data: parametros, //Cadena en formato URLEncoded
+            dataType: 'json', //Formato de la respuesta: text, html, xml, json...
+            success: function(respuesta){ //En el parametro respuesta viene todo lo que el servidor envia
+                console.log(respuesta);
+            },
+            error: function(error){ //En caso de fallar por algun error HTTP
+                console.log(error);
+            }
+        });
+    });
+</script>
+</body>
+</html>

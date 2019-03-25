@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .texto{
+            text-decoration: underline;
+            background-color: red;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 5s font-size;
+            transition: 5s background-color;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="usuario" value="Juan">
+    <input type="password" id="password" value="asd.456">
+    <button id="btn-login" type="button">Login</button>
+    <button id="btn-asignar-clase" type="button">Asignar Clase</button>
+    <button id="btn-quitar-clase" type="button">Quitar Clase</button>
+    <button id="btn-ocultar-div" type="button">Ocultar Div</button>
+    <button id="btn-mostrar-div" type="button">Mostrar Div</button>
+    <div id="resultado">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, ratione?</div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        
+        $('#btn-login').click(function(){
+            $('#resultado').html(
+                $('#usuario').val() +', '+$('#password').val()
+            );
+            //console.log(document.getElementById('usuario').value);
+            //document.getElementById('resultado').style.backgroundColor = 'black';
+            $('#resultado').css('background-color','black');
+            $('#resultado').css('color','white');
+        });
+
+        $('#btn-asignar-clase').click(function(){
+            $('#resultado').addClass('texto');
+        });
+        $('#btn-quitar-clase').click(function(){
+            $('#resultado').removeClass('texto');
+        });
+        $('#btn-ocultar-div').click(function(){
+            $('#resultado').hide(2000);
+            //$('#resultado').fadeOut(1000);
+        });
+        $('#btn-mostrar-div').click(function(){
+            $('#resultado').show(2000);
+            //$('#resultado').fadeIn(1000);
+        });
+        
+
+    </script>
+</body>
+</html>

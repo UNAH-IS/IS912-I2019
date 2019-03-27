@@ -1,6 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var test = require("./modules/test");
+var database = require("./modules/database");
+var pelicula = require("./models/pelicula");
 var app = express();
 
 app.use(bodyParser.json());

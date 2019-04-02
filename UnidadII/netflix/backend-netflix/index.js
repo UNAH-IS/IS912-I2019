@@ -94,6 +94,6 @@ app.delete("/peliculas/:id",function(req, res){
         res.send(error);
     });
 });
-app.listen(3334,function(){
+app.listen(3335,function(){
     console.log("Backend en linea");
 });

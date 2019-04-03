@@ -6,14 +6,14 @@ nombre
 original*/
 function generarItems(informacion){
     //console.log('GENERAR ITEMS');
-    document.getElementById('registros').innerHTML = '';
+    
     for(var i=0; i<informacion.length;i++){
         //console.log(informacion[i]);
         var estrellas="";
         for (var j=0;j<informacion[i].calificacion;j++)
             estrellas+='<i class="fas fa-star"></i>';
 
-        document.getElementById('registros').innerHTML += 
+        document.getElementById(informacion[i].categoria._id).innerHTML += 
                 `<div class="col-xl-3 col-sm-12 col-xs-12">
                     <div>
                        <div class="encabezado" style="background-image: url(${informacion[i].caratula});"></span><span class="">${ informacion[i].original?'<img src="img/logo-netflix-small.png">':'' }</span></div>
@@ -33,6 +33,32 @@ function generarItems(informacion){
 $(document).ready(function(){
     console.log("El DOM ha sido cargado");
     $.ajax({
+        url:"http://localhost:3335/categorias",
+        method:"GET",
+        dataType:"json",
+        success:function(res){
+            console.log("Respuesta");
+            console.log(res);
+            for (var i=0; i<res.length; i++){
+                $("#categorias").append(
+                    `<div class="col-12">
+                        <h1>${res[i].nombre}</h1>
+                        <div class="row" id="${res[i]._id}">
+                        </div>
+                    </div>`
+                );
+            }
+            obtenerPeliculas();
+        },
+        error:function(error){
+            console.log(error);
+        }
+    });
+    /**/
+});
+
+function obtenerPeliculas(){
+    $.ajax({
         url:"http://localhost:3335/peliculas",
         method:"GET",
         dataType:"json",
@@ -45,7 +71,7 @@ $(document).ready(function(){
             console.log(error);
         }
     });
-});
+}
 
 function verMas(e,id){
     e.preventDefault();//Evitar comportamiento por defecto de un anchor

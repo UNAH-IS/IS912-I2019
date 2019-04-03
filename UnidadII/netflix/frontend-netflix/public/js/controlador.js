@@ -21,7 +21,7 @@ function generarItems(informacion){
                             <div class="titulo-descripcion">${informacion[i].nombre}</div>
                             <div class="canal">${informacion[i].descripcion}</div>
                             <div class="visualizaciones">${estrellas}</div>
-                            <div class="visualizaciones"><a href="">Ver ahora</a> | <a href="">Eliminar</a></div>
+                            <div class="visualizaciones"><a href="" onclick="verMas(event, '${informacion[i]._id}')">Ver ahora</a> | <a href="" onclick="eliminar(event, '${informacion[i]._id}')">Eliminar</a></div>
                         </div>
                     </div>
                 </div>`;
@@ -46,3 +46,13 @@ $(document).ready(function(){
         }
     });
 });
+
+function verMas(e,id){
+    e.preventDefault();//Evitar comportamiento por defecto de un anchor
+    console.log('Ver detalle de: ' + id);
+}
+
+function eliminar(e,id){
+    e.preventDefault();
+    console.log('Eliminar el objeto: ' + id);
+}

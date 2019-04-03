@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var esquemaPersona = new mongoose.Schema(
+var esquema = new mongoose.Schema(
     {
         nombre : String,
         descripcion : String,
@@ -14,7 +14,7 @@ var esquemaPersona = new mongoose.Schema(
 //El primer parametro es el singular de la coleccion, 
 //mediante este parametro hace el enlace,
 //si se pone mal este parametro no se podria realizar ninguna instruccion
-module.exports = mongoose.model('peliculas',esquemaPersona);
+module.exports = mongoose.model('peliculas',esquema);
 
 
 

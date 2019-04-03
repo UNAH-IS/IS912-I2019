@@ -3,10 +3,13 @@ var bodyParser = require("body-parser");
 var test = require("./modules/test");
 var database = require("./modules/database");
 var pelicula = require("./models/pelicula");
+var categoriasRouter = require('./routers/categorias-router');
 var cors = require('cors'); //Cross-Origin Resource Sharing (CORS), Intercambio de recursos de origen cruzado (CORS)
 var app = express();
 
+
 app.use(cors());
+app.use("/categorias",categoriasRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 

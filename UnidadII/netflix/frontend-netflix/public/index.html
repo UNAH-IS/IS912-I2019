@@ -22,8 +22,7 @@
             
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-danger my-2 my-sm-0" type="button" data-toggle="modal"  data-target="#modalAgregarPelicula">Agregar</button>
           </form>
         </div>
       </nav>
@@ -79,6 +78,44 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-danger">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal Agregar pelicula-->
+    <div class="modal fade" id="modalAgregarPelicula" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAgregarPeliculaLabel">Detalles</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formulario">
+              Nombre: <input type="text" class="form-control" name="nombre" id="nombre">
+              Descripción: <input type="text" class="form-control" name="descripcion" id="descripcion">
+              Categoría: <select name="categoria" id="categoria" class="form-control"></select>
+              Calificación: <input type="number" class="form-control" name="calificacion" id="calificacion">
+              Original: <label><input type="radio" value="true" name="original">Sí </label>
+                <label><input type="radio" value="false" name="original">No </label>
+              Carátula: <input type="text" class="form-control" name="caratula" id="caratula">
+              Imágenes: <select multiple name="imagenes" id="imagenes" class="form-control">
+                            <option value="img/slide1.jpg">img/slide1.jpg</option>
+                            <option value="img/slide2.jpg">img/slide2.jpg</option>
+                            <option value="img/slide3.jpg">img/slide3.jpg</option>
+                            <option value="img/slide4.jpg">img/slide4.jpg</option>
+                            <option value="img/slide5.jpg">img/slide5.jpg</option>
+                            <option value="img/slide6.jpg">img/slide6.jpg</option>
+                        </select>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" id="btn-guardar-pelicula">Guardar</button>
           </div>
         </div>
       </div>

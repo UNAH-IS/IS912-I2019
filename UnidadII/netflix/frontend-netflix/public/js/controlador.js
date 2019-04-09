@@ -47,6 +47,9 @@ $(document).ready(function(){
                         </div>
                     </div>`
                 );
+                $("#categoria").append(
+                    `<option value="${res[i]._id}">${res[i].nombre}</option>`
+                );
             }
             obtenerPeliculas();
         },
@@ -115,3 +118,6 @@ function eliminar(e,id){
         }
     });
 }
+$("#btn-guardar-pelicula").click(function(){
+    console.log($("#formulario").serialize() + "&nombreCategoria="+$("#categoria:selected").html());
+});

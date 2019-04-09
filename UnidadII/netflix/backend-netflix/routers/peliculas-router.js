@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var pelicula = require("../models/pelicula");
 
-
 //Obtener el listado de todas las peliculas
 router.get("/",function(req,res){
     pelicula.find()
@@ -28,16 +27,30 @@ router.get("/:id",function(req,res){
 //Peticion para guardar una pelicula
 router.post("/", function(req, res){
     var p = new pelicula({
-            nombre : req.body.nombre,
-            descripcion : req.body.descripcion,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
             caratula:req.body.caratula,
-            categoria : {
-                    nombre : req.body.nombreCategoria,
-                    orden : req.body.ordenCategoria
+            categoria: {
+                    _id: req.body.categoria,
+                    nombre: req.body.nombreCategoria
             },
-            calificacion : req.body.calificacion,
-            imagenes : []
+            calificacion: req.body.calificacion,
+            imagenes: req.body.imagenes,
+            original: req.body.original
     });
+
+    console.log(JSON.stringify({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        caratula:req.body.caratula,
+        categoria: {
+                _id: req.body.categoria,
+                nombre: req.body.nombreCategoria
+        },
+        calificacion: req.body.calificacion,
+        imagenes: req.body.imagenes,
+        original: req.body.original
+}));
 
     p.save()
     .then(obj=>{

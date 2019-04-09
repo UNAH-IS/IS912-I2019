@@ -1,0 +1,41 @@
+MongoDB
+use nombreDB
+db
+show dbs
+db.movies.insert({})_
+show dbs
+db.dropDatabase()
+db.createCollection(name,options)
+show collections
+db.collection_name.find()
+db.collection_name.drop()
+var bulk = db.collection_name.initializeUnorderedBulkOp();  
+bulk.insert({})
+bulk.execute()
+db.collection_name.update({'course':'java'},{$set:{'course':'android'}})
+db.collection_name.remove({})
+db.collection_name.remove({},true) //Segundo parametro para ver si cumple la condicion, llaves vacias elimina todo  
+db.collection_name.limit(NUMBER)
+db.collection_name.find().sort({'key',-1})  //-1 descendente, 1 ascendente
+
+
+db.peliculas.aggregate([{$lookup:{from:"categorias",localField:"categoria._id",foreignField:"_id",as:"test"}}]).pretty();
+
+--Filtrar todas las peliculas de accion por el _id
+db.peliculas.find({"categoria._id":ObjectId("5ca3810c81a123ccbd73abfa")}).pretty();
+
+
+
+
+Mongoose
+Mongoose es una biblioteca de modelado de datos de objetos (ODM) para MongoDB y Node.js. Administra las relaciones entre los datos, proporciona la validación del esquema y se utiliza para traducir entre los objetos en el código y la representación de esos objetos en MongoDB.
+
+Tipos de datos para los esquemas
+Array
+Boolean
+Buffer
+Date
+Mixed (A generic / flexible data type)
+Number
+ObjectId
+String

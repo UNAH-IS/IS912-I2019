@@ -119,5 +119,36 @@ function eliminar(e,id){
     });
 }
 $("#btn-guardar-pelicula").click(function(){
-    console.log($("#formulario").serialize() + "&nombreCategoria="+$("#categoria:selected").html());
+    var parametros = $("#formulario").serialize() + "&nombreCategoria="+$("#categoria option:selected").text();
+    console.log("Información a guardar: " + parametros);
+    $.ajax({
+        url:"http://localhost:3335/peliculas/",
+        method:"post",
+        data: parametros,
+        dataType: "json",
+        success:function(res){
+            console.log(res);
+            $("#modalAgregarPelicula").modal("hide");
+            var estrellas="";
+            for (var j=0;j<res.calificacion;j++)
+                estrellas+='<i class="fas fa-star"></i>';
+            //Anexar la pelicula guardada
+            $("#"+res.categoria._id).append( 
+                `<div class="col-xl-3 col-sm-12 col-xs-12" id="${res._id}">
+                    <div>
+                       <div class="encabezado" style="background-image: url(${res.caratula});"></span><span class="">${ res.original?'<img src="img/logo-netflix-small.png">':'' }</span></div>
+                        <div class="descripcion">
+                            <div class="titulo-descripcion">${res.nombre}</div>
+                            <div class="canal">${res.descripcion}</div>
+                            <div class="visualizaciones">${estrellas}</div>
+                            <div class="visualizaciones"><a href="" onclick="verMas(event, '${res._id}')">Ver más</a> | <a href="" onclick="eliminar(event, '${res._id}')">Eliminar</a></div>
+                        </div>
+                    </div>
+                </div>`);
+        },
+        error:function(error){
+            console.log(error);
+            $("#modalVerMas").modal("hide");
+        }
+    });
 });

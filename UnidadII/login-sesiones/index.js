@@ -12,10 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static("public"));
 app.use(session({secret:"ASDFE$%#%",resave:true, saveUninitialized:true}));
 
-//Verificar si existe una variable de sesion para poner publica la carpeta public admin
+//Verificar si existe una variable de sesion para poner publica la carpeta public admin o cajero
 var publicAdmin = express.static("public-admin");
 var publicCajero = express.static("public-cajero");
 
+//Implementar midleware que verifica si tiene acceso a las carpetas correspondientes utilizando las variables de sesion
 app.use(
     function(req,res,next){
         if (req.session.correoUsuario){
@@ -29,14 +30,6 @@ app.use(
             return next();
     }
 );
-
-///Para agregar seguridad a una ruta especifica:
-function verificarAutenticacion(req, res, next){
-	if(req.session.correoUsuario)
-		return next();
-	else
-		res.send("ERROR, ACCESO NO AUTORIZADO");
-}
 
 app.post("/login",function(req, res){
 
@@ -67,5 +60,19 @@ app.get('/logout',function(req,res){
     req.session.destroy();
     res.redirect("/");
 });
+
+//La siguiente es una peticion restringida, se envia una funcion midleware que verifica si esta autenticadoo no.
+app.get("/peticion-registringido",verificarAutenticacion,function(req, res){
+    res.send("Este es un contenido restringido");
+    res.end();
+});
+
+///Para agregar seguridad a una ruta especifica, esta función sería llamada desde alguna peticion.
+function verificarAutenticacion(req, res, next){
+	if(req.session.correoUsuario)
+		return next();
+	else
+		res.send("ERROR, ACCESO NO AUTORIZADO");
+}
 
 app.listen(8111);

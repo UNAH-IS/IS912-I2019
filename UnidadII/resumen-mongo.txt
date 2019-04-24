@@ -19,13 +19,38 @@ db.collection_name.limit(NUMBER)
 db.collection_name.find().sort({'key',-1})  //-1 descendente, 1 ascendente
 
 
+//Cruzar dos colecciones
+db.coleccion1.aggregate([
+    {
+        $lookup:{
+            from:coleccion2,
+            localField:atributoLocal, //Es decir atributo que hace match en coleccion1
+            foreignField:atributoForaneo, //Es decir el atributo de la coleccion con la que se va a relacinar, en este caso, coleccion2,
+            as:aliasDelAtributoResultante
+        }
+    },
+    { //En caso de querer aplicar filtros
+        $match:{
+            atributo:valor
+        }
+    }
+]);
+
+//Ejemplo
 db.peliculas.aggregate([{$lookup:{from:"categorias",localField:"categoria._id",foreignField:"_id",as:"test"}}]).pretty();
+
+//Cruzar la misma coleccion con valores en un arreglo
+db.usuarios.aggregate([{$lookup:{from:"usuarios",localField:"contactos",foreignField:"_id",as:"test"}}]).pretty();
+
+//Cruzar colecciones y a la vez filtrar, los filtros se aplican con match
+db.usuarios.aggregate([{$lookup:{from:"usuarios",localField:"contactos",foreignField:"_id",as:"test"}},{$match:{_id:ObjectId("5cbf4f6961da22954ca0de97")}}]).pretty();
 
 --Filtrar todas las peliculas de accion por el _id
 db.peliculas.find({"categoria._id":ObjectId("5ca3810c81a123ccbd73abfa")}).pretty();
 
 
-
+--Agregar un elemento a un arreglo
+db.usuarios.update({_id:ObjectId("5cbf4f6961da22954ca0de97")},{$push:{contactos:ObjectId("5cbf4f6961da22954ca0de9d")}})
 
 Mongoose
 Mongoose es una biblioteca de modelado de datos de objetos (ODM) para MongoDB y Node.js. Administra las relaciones entre los datos, proporciona la validación del esquema y se utiliza para traducir entre los objetos en el código y la representación de esos objetos en MongoDB.
@@ -39,3 +64,6 @@ Mixed (A generic / flexible data type)
 Number
 ObjectId
 String
+
+
+

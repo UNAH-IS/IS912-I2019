@@ -67,3 +67,23 @@ String
 
 
 
+ObjectId("5cbf4f6961da22954ca0de97") es Patricio
+ObjectId("5cbf4f6961da22954ca0de98") es Vegeta
+
+//Aplicar el operador logico AND y OR
+db.mensajes.find({
+    $or:[
+        {
+            $and:[
+                {emisor:ObjectId("5cbf4f6961da22954ca0de97")},
+                {receptor:ObjectId("5cbf4f6961da22954ca0de98")}
+            ]
+        },
+        {
+            $and:[
+                {emisor:ObjectId("5cbf4f6961da22954ca0de98")},
+                {receptor:ObjectId("5cbf4f6961da22954ca0de97")}
+            ]
+        }
+    ]    
+}).sort({_id:1}).pretty();

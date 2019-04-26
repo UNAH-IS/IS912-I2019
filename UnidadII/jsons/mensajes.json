@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5cbf570805a22baa4cd85cfa"},"emisor":{"$oid":"5cbf4f6961da22954ca0de97"},"receptor":{"$oid":"5cbf4f6961da22954ca0de98"},"mensaje":"Hola","fechaHora":"12/12/2012","leido":true}
+{"_id":{"$oid":"5cbf570805a22baa4cd85cfb"},"emisor":{"$oid":"5cbf4f6961da22954ca0de98"},"receptor":{"$oid":"5cbf4f6961da22954ca0de97"},"mensaje":"Insecto estúpido!","fechaHora":"12/12/2012","leido":true}

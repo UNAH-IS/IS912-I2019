@@ -8,7 +8,7 @@ $("#slc-usuario").change(function(){
 			$("#contactos").html("");
 			for(var i=0;i<res[0].contactos.length;i++){
 				$("#contactos").append(
-					`<div class="row sideBar-body" onclick="seleccionarContacto(${res[0].contactos[i]._id},'${res[0].contactos[i].nombre}','${res[0].contactos[i].imagen}');">
+					`<div class="row sideBar-body" onclick="seleccionarContacto('${res[0].contactos[i]._id}','${res[0].contactos[i].nombre}','${res[0].contactos[i].imagen}');">
 						<div class="col-sm-3 col-xs-3 sideBar-avatar">
 						<div class="avatar-icon">
 							<img src="${res[0].contactos[i].imagen}">
@@ -37,7 +37,36 @@ $("#slc-usuario").change(function(){
 });
 
 function seleccionarContacto(codigoContacto, nombreContacto, urlImagen){
-		
+		console.log("Seleccionar contacto: " + nombreContacto);
+		$("#imagen-contacto").attr("src",urlImagen);
+		$("#nombre-contacto").html(nombreContacto);
+
+		$.ajax({
+			url:`/mensajes/${$("#slc-usuario").val()}/${codigoContacto}`,
+			dataType:"json",
+			success:function(res){
+				console.log(res);
+				for(var i=0;i<res.length;i++){
+					$("#conversation").append(
+						`<div class="row message-body">
+							<div class="col-sm-12 message-main-sender">
+								<div class="sender">
+								<div class="message-text">
+								${res[i].mensaje}
+								</div>
+								<span class="message-time pull-right">
+								18:18
+								</span>
+								</div>
+							</div>
+							</div>`
+					);
+				}
+			},
+			error:function(error){
+				console.error(error);
+			}
+		});
 }
 
 function cargarConversacion(codigoContacto){
